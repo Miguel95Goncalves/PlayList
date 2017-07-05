@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import model.MusicaPlayList;
+import services.SMusica;
 import services.SPlayList;
 
 public class MusicaPlaylistQuery {
 
 	public static void loadMusicaPlaylist(){
-		String musica_playlist = "SELECT  FROM WHERE";
+		SPlayList sPlayList = new SPlayList(); //Instância de SPlaylist
+		SMusica sMusica = new SMusica(); //Instância de SPlaylist
+		
+		String musica_playlist = "SELECT mp_id, mp_musica_id, mp_playlist_id FROM Musica_PlayList";
 
 		try {
 			Connection conn = Coneccao.getConnection();
@@ -20,7 +25,7 @@ public class MusicaPlaylistQuery {
             rs = st.executeQuery(musica_playlist);
             
             while ( rs.next() ) {
-                SPlayList.procurarPlayList()
+                sPlayList.procurarPlaylist(rs.getInt("mp_playlist_id")).getMusicaPlaylist().add(new MusicaPlayList(rs.getInt("mp_id"), sMusica.procurarMusica(rs.getInt("mp_musica_id"))));
             }
             conn.close();
             

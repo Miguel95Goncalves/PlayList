@@ -25,7 +25,7 @@ public class UserPlaylistQuery {
             rs = st.executeQuery(user_playlist);
             
             while(rs.next()){
-            	sUser.procurarUser(rs.getInt("up_user_id")).getUserPlaylist().add(new UserPlayList(rs.getInt("up_id"), sPlayList.procurarPlaylist(rs.getInt("up_playlist_id")))));
+            	sUser.procurarUser(rs.getInt("up_user_id")).getUserPlaylist().add(new UserPlayList(rs.getInt("up_id"), sPlayList.procurarPlaylist(rs.getInt("up_playlist_id"))));
             }
             
             conn.close();

@@ -11,10 +11,10 @@ public class PageOnLoad {
 		AutorQuery.loadAutor();
 		ArtistaQuery.loadArtista();
 		AlbumQuery.loadAlbum();
-		//UserPlaylistQuery.loadUserPlaylist();
+		UserPlaylistQuery.loadUserPlaylist();
 		ArtistaFuncaoQuery.loadArtistaFuncao();
 		ArtistaMusicaQuery.loadArtistaMusica();
 		GeneroMusicaQuery.loadGeneroMusica();
-		//MusicaPlaylistQuery.loadMusicaPlaylist();
+		MusicaPlaylistQuery.loadMusicaPlaylist();
 	}
 }
