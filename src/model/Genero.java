@@ -1,9 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Genero {
 	
 	private int genero_id;
 	private String genero_nome;
+	private ArrayList<GeneroMusica> generoMusica;
 
 	public Genero(){
 		
@@ -13,6 +16,7 @@ public class Genero {
 		super();
 		this.genero_id = genero_id;
 		this.genero_nome = genero_nome;
+		generoMusica = new ArrayList<>();
 	}
 
 	public int getGenero_id() {
@@ -29,6 +33,14 @@ public class Genero {
 
 	public void setGenero_nome(String genero_nome) {
 		this.genero_nome = genero_nome;
+	}
+
+	public ArrayList<GeneroMusica> getGeneroMusica() {
+		return generoMusica;
+	}
+
+	public void setGeneroMusica(ArrayList<GeneroMusica> generoMusica) {
+		this.generoMusica = generoMusica;
 	}
 	
 }

@@ -19,7 +19,7 @@ public class SUser implements Logica{
 			HttpSession sessao = req.getSession(true);
 			
 			sessao.setAttribute("user_id", user_id); //Guarda o ID do utilizador numa varavel de sessao
-			//System.out.println("tipo: " + procurarUser(user_id).getUser_tipo());
+			System.out.println("tipo: " + procurarUser(user_id).getUser_tipo());
 			//sessao.setAttribute("user_tipo", procurarUser(user_id).getUser_tipo()); //Guarda o ID do tipo de utilizador numa varavel de sessao
 			
 			return true; //Se o login for efetuado com sucesso retorna true

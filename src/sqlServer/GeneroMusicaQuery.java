@@ -4,10 +4,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import model.GeneroMusica;
+import services.SGenero;
+import services.SMusica;
+
 public class GeneroMusicaQuery {
 
 	public static void loadGeneroMusica(){
-		/*String tema = "SELECT  FROM WHERE";
+		SGenero sGenero = new SGenero();
+		SMusica sMusica = new SMusica();
+		
+		String genero_musica = "SELECT gm_id, gm_genero_id, gm_musica_id FROM Genero_Musica";
 
 		try {
 			Connection conn = Coneccao.getConnection();
@@ -15,23 +22,17 @@ public class GeneroMusicaQuery {
 			Statement st = conn.createStatement();
             ResultSet rs;
  
-            rs = st.executeQuery(tema);
+            rs = st.executeQuery(genero_musica);
             
             while ( rs.next() ) {
-            	Tema t;
-            	if(rs.getInt("tema_id_precedencia") == 0){
-            		t = null;
-            	}else{
-            		t = Logica.temas.get(rs.getInt("tema_id_precedencia"));
-            	}
-                Logica.temas.add(new Tema(rs.getInt("tema_id"), rs.getString("tema_nome"), rs.getString("tema_intro"), rs.getString("tema_conteudo"), t, rs.getInt("tema_restricao") ));
+                sGenero.procurarGenero(rs.getInt("gm_genero_id")).getGeneroMusica().add(new GeneroMusica(rs.getInt("gm_id"), sMusica.procurarMusica(rs.getInt("gm_musica_id"))));
             }
             conn.close();
             
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
-        }*/
+        }
 	}
 	
 	public static int addGeneroMusica(int genero_id, int musica_id) {
