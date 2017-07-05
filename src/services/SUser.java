@@ -91,7 +91,6 @@ public class SUser implements Logica{
 			}else if(req.getParameter("acao").equals("elimUser")) {
 				elimUser(Integer.parseInt(req.getParameter("user_id")));
 			}else if(req.getParameter("acao").equals("login")) {
-				login(req);
 				System.out.println(login(req));
 			}
 				return "/login.jsp";
