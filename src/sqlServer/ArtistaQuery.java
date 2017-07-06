@@ -21,7 +21,7 @@ public class ArtistaQuery {
             rs = st.executeQuery(artista);
             
             while ( rs.next() ) {
-                Logica.arArtitas.add(new Artista(rs.getInt("artista_id"), rs.getString("artista_nome")));
+                Logica.arArtistas.add(new Artista(rs.getInt("artista_id"), rs.getString("artista_nome")));
             }
             conn.close();
             

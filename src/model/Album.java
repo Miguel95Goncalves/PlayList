@@ -5,6 +5,9 @@ public class Album {
 	private int album_id;
 	private String album_nome;
 	
+	public Album() {
+	}
+	
 	public Album(int album_id, String album_nome) {
 		super();
 		this.album_id = album_id;

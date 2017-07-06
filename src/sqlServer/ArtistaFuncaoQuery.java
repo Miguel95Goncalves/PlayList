@@ -4,10 +4,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import model.ArtistaFuncao;
+import services.SArtista;
+import services.SFuncao;
+
 public class ArtistaFuncaoQuery {
 
 	public static void loadArtistaFuncao(){
-		/*String tema = "SELECT  FROM WHERE";
+		SArtista sArtista = new SArtista();
+		SFuncao sFuncao = new SFuncao();
+		
+		String artista_funcao = "SELECT af_id, af_artista_id, af_funcao_id FROM Artista_Funcao";
 
 		try {
 			Connection conn = Coneccao.getConnection();
@@ -15,23 +22,17 @@ public class ArtistaFuncaoQuery {
 			Statement st = conn.createStatement();
             ResultSet rs;
  
-            rs = st.executeQuery(tema);
+            rs = st.executeQuery(artista_funcao);
             
             while ( rs.next() ) {
-            	Tema t;
-            	if(rs.getInt("tema_id_precedencia") == 0){
-            		t = null;
-            	}else{
-            		t = Logica.temas.get(rs.getInt("tema_id_precedencia"));
-            	}
-                Logica.temas.add(new Tema(rs.getInt("tema_id"), rs.getString("tema_nome"), rs.getString("tema_intro"), rs.getString("tema_conteudo"), t, rs.getInt("tema_restricao") ));
+                sArtista.procurarArtista(rs.getInt("af_artista_id")).getArtistaFuncao().add(new ArtistaFuncao(rs.getInt("af_id"), sFuncao.procurarFuncao(rs.getInt("af_funcao_id"))));
             }
             conn.close();
             
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
-        }*/
+        }
 	}
 	
 	public static int addArtistaFuncao(int artista_id, int funcao_id) {

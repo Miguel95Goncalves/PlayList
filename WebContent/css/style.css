@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+nav {
+    float: left;
+    max-width: 200px;
+    margin: 0;
+    padding: 1em;
+}
+
+
+
+.loginForm{
+	padding-top: 20%;
+	padding-left: 20%;
+	width: auto;
+	margin: auto;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-image:  url(../img/pagina_Inicio/backgorund_pag_inicio_F.png);
+}

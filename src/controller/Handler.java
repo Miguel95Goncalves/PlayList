@@ -11,31 +11,34 @@ import javax.servlet.http.HttpSession;
 import services.Logica;
 import sqlServer.PageOnLoad;
 
+/**
+ * Servlet implementation class HandlerIndex
+ */
 @WebServlet("/Handler")
 public class Handler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    PageOnLoad pageOnLoad;
-	
+
     public Handler() {
         super();
-        pageOnLoad = new PageOnLoad();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		HttpSession sessao = request.getSession(true);
 		
-		if(sessao.getAttribute("user_id") == null){
-			pageOnLoad.carregarInformacao();
+		if(sessao.getAttribute("user_id") != null){
+			request.setAttribute("listaMusicas", Logica.arMusicas);
+			request.setAttribute("listaUsers", Logica.arUSers);
+			request.setAttribute("listaArtista", Logica.arArtistas);
+			request.setAttribute("listaPlayList", Logica.arPlayLists);
+			request.setAttribute("listaGeneros", Logica.arGeneros);
+			request.setAttribute("ListaFuncao", Logica.arFuncoes);
 		}
 		
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
 		String parametro = request.getParameter("logica"); //Recebe como parametro do jsp, qual a class do service que irá atuar
 	    String nomeDaClasse = "services." + parametro; //Nome da Classe
 	    
@@ -44,7 +47,7 @@ public class Handler extends HttpServlet {
 	      Logica logica = (Logica) classe.newInstance();
 	      
 	      String pagina = logica.executa(request, response);
-	      
+	      System.out.println(pagina);
 	      request.getRequestDispatcher(pagina).forward(request, response);
 
 	    } catch (Exception e) {

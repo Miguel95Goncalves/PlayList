@@ -21,8 +21,8 @@ public interface Logica {
 	static ArrayList<Autor> arAutores = new ArrayList<>();
 	static ArrayList<PlayList> arPlayLists = new ArrayList<>();
 	static ArrayList<Genero> arGeneros = new ArrayList<>();
-	static ArrayList<Artista> arArtitas = new ArrayList<>();
-	static ArrayList<Album> arAlbuns = new ArrayList<>();
+	static ArrayList<Artista> arArtistas = new ArrayList<>();
+	static ArrayList<Album>    arAlbuns    = new ArrayList<>();
 	static ArrayList<Funcao> arFuncoes = new ArrayList<>();
 
 	String executa(HttpServletRequest req, HttpServletResponse res) throws Exception;

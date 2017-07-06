@@ -7,6 +7,7 @@ public class Artista{
 	private int artista_id;
 	private String artista_nome;
 	private ArrayList<ArtistaMusica> artistaMusica;
+	private ArrayList<ArtistaFuncao> artistaFuncao;
 
 	public Artista(){
 		
@@ -17,6 +18,7 @@ public class Artista{
 		this.artista_id = artista_id;
 		this.artista_nome = artista_nome;
 		artistaMusica = new ArrayList<>();
+		artistaFuncao = new ArrayList<>();
 	}
 
 	public int getArtista_id() {
@@ -41,6 +43,14 @@ public class Artista{
 
 	public void setArtistaMusica(ArrayList<ArtistaMusica> artistaMusica) {
 		this.artistaMusica = artistaMusica;
+	}
+
+	public ArrayList<ArtistaFuncao> getArtistaFuncao() {
+		return artistaFuncao;
+	}
+
+	public void setArtistaFuncao(ArrayList<ArtistaFuncao> artistaFuncao) {
+		this.artistaFuncao = artistaFuncao;
 	}
 	
 }
